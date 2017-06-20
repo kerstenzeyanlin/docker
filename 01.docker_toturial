@@ -1,0 +1,90 @@
+常用的 Docker 命令
+
+    列出所有 images
+
+    docker images
+
+    從 docker hub 取得 image
+
+    docker pull <image-name>
+    docker pull ubuntu
+    docker pull centos
+
+    列出所有正在執行的 containers
+
+    docker ps
+
+    列出所有 containers
+
+    要列出所有 containers 就要加上 -a 表示所有
+
+    docker ps -a
+
+    建立 images
+
+    -t 表示待會建立的 image 我們給予一個 tag，之後我們就可以用該 tag 名稱來呼叫 image
+
+    docker build -t <tag name> <path to Dockerfile>
+    docker build -t testimage /test
+    docker build -t testimage2 .
+
+    執行 images
+
+    -d 表示在背景執行
+    --name 表示待會執行的 container 我們給予一個名字，比較方便之後指令呼叫
+    -p 表示映射本機的 port 到容器裡面的 port
+    -v 表示將本機的資料夾與容器的資料夾進行綁定
+
+    dcoker run -d -p <host_port>:<container_port> <image_tag_name>
+    docker run -d -p 80:8080 testimage
+
+    docker run -d --name <container_name> <image_tag_name>
+    docker run -d --name test_container testimage
+
+    docker run -d -v <host_path>:<container_path> <image_tag_name>
+    docker run -d -v ~/project:/usr/app testimage
+
+    docker run -d --name test_container -p 80:8080 -v ~/project:/usr/app testimage
+
+    停止 container
+
+    docker stop <container_name>
+    docker stop test_container
+
+    啟動 container
+
+    docker start <container_name>
+    docker start test_container
+
+    刪除 container
+
+    刪除 container 之前要先確認 container 已經停止
+
+    docker rm <container_name / container_id>
+    docker rm test_container
+    docker rm e921d53c542b
+
+    刪除 image
+
+    docker rmi <image_tag / image_id>
+    docker rmi test_image
+    docker rmi 6a4d26175002
+
+    將一個 containers 儲存成 image
+
+    docker commit <container_id / container_name> <image_tag>
+    docker commit test_container new_test_image
+
+    匯出 image
+
+    docker save <image_tag>
+
+    docker save myimage | bzip2 -9 -c > myimage.tar.bz2
+    docker save myimage > myimage.tar
+
+    匯入 image
+
+    docker load < <file_name>
+    docker load myimage.tar
+    bzip2 -d -c < myimage.tar.bz2 | docker load
+
