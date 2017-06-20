@@ -149,7 +149,10 @@ Error response from daemon: Container ????  is not running
 或是我們用 docker run –name 【別名】 【image id】 ping localhost 來讓他持續 ping
 再開一個視窗用 docker exec 連到這個 container 試試
 
+
+
 =============================================
+#命令
 docker-attach(1)
     依附到一個正在執行的容器中。
 
@@ -254,7 +257,56 @@ docker-version(1)
 
 docker-wait(1)
     阻塞直到一個容器終止，然後輸出它的退出符
+===========================================
+#選項
+-D=true|false
+    使用 debug 模式。預設為 false。
 
+-H, --host=[unix:///var/run/docker.sock]: tcp://[host:port]來綁定或者 unix://[/path/to/socket] 來使用。
+    在 daemon 模式下綁定的 socket，透過一個或多個 tcp://host:port, unix:///path/to/socket, fd://* or fd://socketfd 來指定。
+
+--api-enable-cors=true|false
+    在遠端 API 中啟用 CORS 頭。預設為 false。
+
+-b=""
+    將容器掛載到一個已存在的橋接器上。指定為 'none' 時則禁用容器的網路。
+
+--bip=""
+    讓動態建立的 docker0 採用指定的 CIDR 位址; 與 -b 選項互斥。
+
+-d=true|false
+    使用 daemon 模式。預設為 false。
+
+--dns=""
+    讓 Docker 使用指定的 DNS 伺服器。
+
+-g=""
+    指定 Docker 執行時的 root 路徑。預設為 /var/lib/docker。
+
+--icc=true|false
+    啟用容器間通信。預設為 true。
+
+--ip=""
+    綁定連接埠時候的預設 IP 位址。預設為 0.0.0.0。
+
+--iptables=true|false
+    禁止 Docker 新增 iptables 規則。預設為 true。
+
+--mtu=VALUE
+    指定容器網路的 mtu。預設為 1500。
+
+-p=""
+    指定 daemon 的 PID 檔案路徑。預設為 /var/run/docker.pid。
+
+-s=""
+    強制 Docker 執行時使用指定的儲存驅動。
+
+-v=true|false
+    輸出版本資訊並退出。預設值為 false。
+
+--selinux-enabled=true|false
+    啟用 SELinux 支援。預設值為 false。SELinux 目前不支援 BTRFS 儲存驅動。
+======================================================================
 #清除整個Docker的紀錄
 關閉docker
 $ /etc/init.d/docker stop
