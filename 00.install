@@ -26,8 +26,12 @@ $ sudo docker run --name RS -d -p 8787:8787 zeyanlin/rstudio
 --name 可有可無，設了會比較方便。
 Visit localhost:8787 in your browser and log in with username:password as rstudio:rstudio.
 (例如：http://rstudio:rstudio@192.168.1.109:8787/)
+$ sudo docker run --name RS -d -p 8787:8787 -e USER=<username> -e PASSWORD=<password> zeyanlin/rstudio
+(http://<username>:<password>@192.168.1.109:8787/)
 
-​停止Rstudio container
+停止Rstudio container
 $ sudo docker stop RS
 啟動Rstudio container
 $ sudo sdocker start RS
+重新啟動Rstudio container
+$ sudo sdocker restart RS
