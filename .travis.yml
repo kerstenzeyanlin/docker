@@ -8,8 +8,8 @@ services:
   - docker
 
 ## Make sure all containers build without error.
-before_install: 
-  - docker build -t zeyanlin/rstudio rstudio
+#before_install: 
+#  - docker build -t zeyanlin/rstudio rstudio
  
 
 ## A few simple / crude tests
