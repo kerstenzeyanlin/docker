@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/linzeyan/docker_Rstudio_server.svg?branch=master)](https://travis-ci.org/linzeyan/docker_Rstudio_server)
 # Book about Docker
 ```
 01.:https://www.gitbook.com/book/philipzheng/docker_practice/details
