@@ -2,3 +2,20 @@
 # https://travis-ci.org/linzeyan/docker_Rstudio_server
 # https://docs.travis-ci.com/user/customizing-the-build#Safelisting-or-blocklisting-branches
 
+sudo: required
+
+services:
+  - docker
+
+## Make sure all containers build without error.
+before_install: 
+  - docker build -t zeyanlin/rstudio rstudio
+ 
+
+## A few simple / crude tests
+script:
+  - docker run -ti zeyanlin/rstudio R --version
+
+  - docker run -d --name rstudio zeyanlin/rstudio
+  - sleep 5 && docker ps | grep rstudio
+  - docker rm -f $(docker ps -a -q)
