@@ -11,3 +11,11 @@
 01.:http://kanchengzxdfgcv.blogspot.tw/2017/02/
 https://github.com/kancheng/rsloan-environment.git
 ```
+
+
+# Base on [rocker/rstudio](https://hub.docker.com/r/rocker/rstudio/) and install some pakeages.
+
+Visit localhost:8787 in your browser and log in with username:password as rstudio:rstudio.
+(e.g：http://rstudio:rstudio@162.158.10.119:8787/)<br>
+#### Customize：<br>
+```docker run -d -p 8787:8787 -e USER=username -e PASSWORD=password zeyanlin/rstudio```
