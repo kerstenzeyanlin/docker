@@ -3,7 +3,7 @@ FROM zeyanlin/rstudio:latest
 ## from https://github.com/linzeyan/rstudio
 MAINTAINER Lin ZeYan
 
-RUN zeyanlin/rstudio:latest
+RUN apt-get update
 
 EXPOSE 8787
 
