@@ -74,6 +74,32 @@ RUN apt-get update \
    && echo '#!/bin/bash \
            \n rstudio-server stop' \
            > /etc/services.d/rstudio/finish
+	   
+RUN R
+RUN install.packages("ggplot2")
+RUN install.packages("devtools")
+RUN install.packages("plyr")
+RUN install.packages("dplyr")
+RUN install.packages("reshape2 ")
+RUN install.packages("Rcpp ")
+RUN install.packages("digest")
+RUN install.packages("stringr")
+RUN install.packages("lubridate  ")
+RUN install.packages("knitr")
+RUN install.packages("shiny")
+RUN install.packages("colorspace")
+RUN install.packages("RColorBrewer")
+RUN install.packages("scales")
+RUN install.packages("labeling")
+RUN install.packages("data.table")
+RUN install.packages("rvest")
+RUN install.packages("magrittr")
+RUN install.packages("zoo")
+RUN install.packages("tidyr")
+RUN install.packages("rJava")
+RUN install.packages("RJDBC")
+RUN install.packages("broom")
+RUN update.packages(ask = FALSE)
 
 COPY userconf.sh /etc/cont-init.d/userconf
 
