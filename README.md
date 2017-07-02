@@ -1,6 +1,9 @@
 [![](https://travis-ci.org/linzeyan/docker_Rstudio_server.svg?branch=master)](https://travis-ci.org/linzeyan/docker_Rstudio_server)
 [![](https://img.shields.io/docker/pulls/zeyanlin/rstudio.svg)](https://hub.docker.com/r/zeyanlin/rstudio/)
 [![](https://img.shields.io/docker/automated/zeyanlin/rstudio.svg)](https://hub.docker.com/r/zeyanlin/rstudio/builds)
+[![](https://images.microbadger.com/badges/image/zeyanlin/rstudio.svg)](https://microbadger.com/images/zeyanlin/rstudio")
+[![](https://images.microbadger.com/badges/version/zeyanlin/rstudio.svg)](https://microbadger.com/images/zeyanlin/rstudio)
+[![](https://images.microbadger.com/badges/license/zeyanlin/rstudio.svg)](https://microbadger.com/images/zeyanlin/rstudio)
 # Book about Docker
 ```
 01.:https://www.gitbook.com/book/philipzheng/docker_practice/details
