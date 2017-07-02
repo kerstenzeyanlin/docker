@@ -76,8 +76,8 @@ RUN apt-get update \
            > /etc/services.d/rstudio/finish
 	   
 RUN R \
-  && install.packages(c("ggplot2","devtools","plyr","dplyr","reshape2 ","Rcpp ","digest","stringr","lubridate","knitr")) \
-  && update.packages(ask = FALSE)
+  & install.packages(c("ggplot2","devtools","plyr","dplyr","reshape2 ","Rcpp ","digest","stringr","lubridate","knitr")) \
+  & update.packages(ask = FALSE)
 
 COPY userconf.sh /etc/cont-init.d/userconf
 
