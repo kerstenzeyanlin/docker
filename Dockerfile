@@ -43,8 +43,7 @@ RUN apt-get update \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/ \
   
-  && wget -P /tmp/ http://cran.csie.ntu.edu.tw/src/contrib/Archive/zoo/zoo_1.7-14.tar.gz \
-  && sudo CMD INSTALL /tmp/zoo_1.7-14.tar.gz \
+
   
   
   ## RStudio wants an /etc/R, will populate from $R_HOME/etc
@@ -69,6 +68,14 @@ RUN apt-get update \
   ## configure git not to request password each time 
   && git config --system credential.helper 'cache --timeout=3600' \
   && git config --system push.default simple \
+  
+  
+  
+  && wget -P /tmp/ http://cran.csie.ntu.edu.tw/src/contrib/Archive/zoo/zoo_1.7-14.tar.gz \
+  && CMD INSTALL /tmp/zoo_1.7-14.tar.gz \
+  
+  
+  
   ## Set up S6 init system
   && wget -P /tmp/ https://github.com/just-containers/s6-overlay/releases/download/v1.11.0.1/s6-overlay-amd64.tar.gz \
   && tar xzf /tmp/s6-overlay-amd64.tar.gz -C / \
