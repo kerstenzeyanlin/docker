@@ -67,17 +67,16 @@ RUN apt-get update \
   &&  echo 'rsession-which-r=/usr/local/bin/R' >> /etc/rstudio/rserver.conf \ 
   ## configure git not to request password each time 
   && git config --system credential.helper 'cache --timeout=3600' \
-  && git config --system push.default simple \
+  && git config --system push.default simple
   
   
   
-  && wget -P /tmp/ http://cran.csie.ntu.edu.tw/src/contrib/Archive/zoo/zoo_1.7-14.tar.gz \
-  && /usr/lib/R/bin/Rcmd R CMD INSTALL--build /tmp/zoo_1.7-14.tar.gz \
+RUN R
   
   
   
   ## Set up S6 init system
-  && wget -P /tmp/ https://github.com/just-containers/s6-overlay/releases/download/v1.11.0.1/s6-overlay-amd64.tar.gz \
+RUN wget -P /tmp/ https://github.com/just-containers/s6-overlay/releases/download/v1.11.0.1/s6-overlay-amd64.tar.gz \
   && tar xzf /tmp/s6-overlay-amd64.tar.gz -C / \
   && mkdir -p /etc/services.d/rstudio \
   && echo '#!/bin/bash \
