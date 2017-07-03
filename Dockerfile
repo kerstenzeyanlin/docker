@@ -42,10 +42,6 @@ RUN apt-get update \
   && rm ${PANDOC_TEMPLATES_VERSION}.tar.gz \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/ \
-  
-
-  
-  
   ## RStudio wants an /etc/R, will populate from $R_HOME/etc
   && mkdir -p /etc/R \
   ## Write config files in $R_HOME/etc
@@ -68,12 +64,36 @@ RUN apt-get update \
   ## configure git not to request password each time 
   && git config --system credential.helper 'cache --timeout=3600' \
   && git config --system push.default simple
-  
-  
-  
+# Install some packages  
 RUN R -e "install.packages('methods', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
-  && R -e "install.packages('Rcpp', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')"
-  
+  && R -e "install.packages('Rcpp', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('RJSONIO', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('digest', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('functional', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('reshape2', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('stringr', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('zoo', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('caTools', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('quickcheck', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('testthat', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('shiny', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('colorspace', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('RColorBrewer', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('ggplot2', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('devtools', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('plyr', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('dplyr', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('lubridate', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('knitr', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('Deducer', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('scales', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('labeling', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('data.table', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('rvest', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('magrittr', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('tidyr', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('broom', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('lattice', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')"
   
   ## Set up S6 init system
 RUN wget -P /tmp/ https://github.com/just-containers/s6-overlay/releases/download/v1.11.0.1/s6-overlay-amd64.tar.gz \
@@ -86,8 +106,6 @@ RUN wget -P /tmp/ https://github.com/just-containers/s6-overlay/releases/downloa
            \n rstudio-server stop' \
            > /etc/services.d/rstudio/finish
 	   
-
-
 COPY userconf.sh /etc/cont-init.d/userconf
 
 ## running with "-e ADD=shiny" adds shiny server
