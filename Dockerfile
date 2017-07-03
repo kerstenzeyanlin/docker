@@ -71,7 +71,7 @@ RUN apt-get update \
   
   
   
-RUN R
+RUN sudo su - -c "R -e  "install.packages('zoo', repos='https://cran.rstudio.com/')""
   
   
   
