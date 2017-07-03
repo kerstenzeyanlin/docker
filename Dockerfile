@@ -1,4 +1,4 @@
-FROM rocker/r-ver:latest
+FROM zeyanlin/r-ver:latest
 
 ARG RSTUDIO_VERSION
 ARG PANDOC_TEMPLATES_VERSION 
@@ -64,7 +64,8 @@ RUN apt-get update \
   ## configure git not to request password each time 
   && git config --system credential.helper 'cache --timeout=3600' \
   && git config --system push.default simple
-# Install some packages  
+# Install some packages
+# Rscript -e "install.packages(c('methods', 'Rcpp', 'RJSONIO'), dependencies=TRUE, repos='http://cran.rstudio.com/')" 
 RUN R -e "install.packages('methods', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
   && R -e "install.packages('Rcpp', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
   && R -e "install.packages('RJSONIO', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
