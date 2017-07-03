@@ -44,7 +44,7 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/ \
   
   && wget -P /tmp/ http://cran.csie.ntu.edu.tw/src/contrib/Archive/zoo/zoo_1.7-14.tar.gz \
-  && CMD INSTALL /tmp/zoo_1.7-14.tar.gz \
+  && sudo CMD INSTALL /tmp/zoo_1.7-14.tar.gz \
   
   
   ## RStudio wants an /etc/R, will populate from $R_HOME/etc
