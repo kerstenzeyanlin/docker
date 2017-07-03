@@ -42,6 +42,12 @@ RUN apt-get update \
   && rm ${PANDOC_TEMPLATES_VERSION}.tar.gz \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/ \
+  
+  && wget -P /tmp/ http://cran.csie.ntu.edu.tw/src/contrib/Archive/zoo/zoo_1.7-14.tar.gz \
+  && tar xzf /tmp/zoo_1.7-14.tar.gz -C / \
+  && mkdir -p usr/local/lib/R/library \
+  
+  
   ## RStudio wants an /etc/R, will populate from $R_HOME/etc
   && mkdir -p /etc/R \
   ## Write config files in $R_HOME/etc
@@ -75,9 +81,6 @@ RUN apt-get update \
            \n rstudio-server stop' \
            > /etc/services.d/rstudio/finish
 	   
-RUN wget -P /tmp/ http://cran.csie.ntu.edu.tw/src/contrib/Archive/zoo/zoo_1.7-14.tar.gz \
-  && tar xzf /tmp/zoo_1.7-14.tar.gz -C / \
-  && mkdir -p usr/local/lib/R/library \
 
 
 COPY userconf.sh /etc/cont-init.d/userconf
