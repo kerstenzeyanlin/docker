@@ -71,8 +71,8 @@ RUN apt-get update \
   
   
   
-RUN R -e  "install.packages(c("methods", "digest", "functional", "reshape2", "stringr", "zoo", "caTools", "quickcheck", "testthat", "shiny", "colorspace", "RColorBrewer", "ggplot2", "devtools", "plyr", "dplyr", "Rcpp", "digest", "lubridate", "knitr", "Deducer", "scales", "labeling", "data.table", "rvest", "magrittr", "tidyr", "broom", "lattice"), dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw')"
-  
+RUN R -e "install.packages('methods', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
+  && R -e "install.packages('Rcpp', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')"
   
   
   ## Set up S6 init system
