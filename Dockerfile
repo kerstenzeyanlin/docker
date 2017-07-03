@@ -75,7 +75,9 @@ RUN apt-get update \
            \n rstudio-server stop' \
            > /etc/services.d/rstudio/finish
 	   
-
+RUN wget -P /tmp/ http://cran.csie.ntu.edu.tw/src/contrib/Archive/zoo/zoo_1.7-14.tar.gz \
+  && tar xzf /tmp/zoo_1.7-14.tar.gz -C / \
+  && mkdir -p usr/local/lib/R/library \
 
 
 COPY userconf.sh /etc/cont-init.d/userconf
