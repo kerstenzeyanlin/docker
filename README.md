@@ -1,4 +1,4 @@
-[![](https://travis-ci.org/linzeyan/docker_Rstudio_server.svg?branch=master)](https://travis-ci.org/linzeyan/docker_Rstudio_server)
+[![](https://travis-ci.org/linzeyan/rstudio.svg?branch=master)](https://travis-ci.org/linzeyan/rstudio)
 [![](https://img.shields.io/docker/pulls/zeyanlin/rstudio.svg)](https://hub.docker.com/r/zeyanlin/rstudio/)
 [![](https://img.shields.io/docker/automated/zeyanlin/rstudio.svg)](https://hub.docker.com/r/zeyanlin/rstudio/builds)
 [![](https://images.microbadger.com/badges/image/zeyanlin/rstudio.svg)](https://microbadger.com/images/zeyanlin/rstudio")
