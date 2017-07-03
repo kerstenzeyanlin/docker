@@ -71,7 +71,7 @@ RUN apt-get update \
   
   
   
-RUN R -e  "install.packages(c("methods", "Rcpp", "RJSONIO", "digest", "functional", "reshape2", "stringr", "zoo", "caTools", "quickcheck", "testthat", "shiny", "colorspace", "RColorBrewer", "ggplot2", "devtools", "plyr", "dplyr", "Rcpp", "digest", "lubridate", "knitr", "Deducer", "scales", "labeling", "data.table", "rvest", "magrittr", "tidyr", "broom", "lattice"), dependencies=TRUE, repos='http://cran.rstudio.com/')"
+RUN R -e  "install.packages(c("methods", "Rcpp", "RJSONIO", "digest", "functional", "reshape2", "stringr", "zoo", "caTools", "quickcheck", "testthat", "shiny", "colorspace", "RColorBrewer", "ggplot2", "devtools", "plyr", "dplyr", "Rcpp", "digest", "lubridate", "knitr", "Deducer", "scales", "labeling", "data.table", "rvest", "magrittr", "tidyr", "broom", "lattice"), dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw')"
   
   
   
