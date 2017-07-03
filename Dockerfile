@@ -72,7 +72,7 @@ RUN apt-get update \
   
   
   && wget -P /tmp/ http://cran.csie.ntu.edu.tw/src/contrib/Archive/zoo/zoo_1.7-14.tar.gz \
-  && R CMD INSTALL--build /tmp/zoo_1.7-14.tar.gz \
+  && /usr/local/lib/R/site-library R CMD INSTALL--build /tmp/zoo_1.7-14.tar.gz \
   
   
   
