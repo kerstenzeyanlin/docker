@@ -71,7 +71,10 @@ RUN apt-get update \
   
   
   
-RUN sudo su - -c "R -e  "install.packages('zoo', repos='https://cran.rstudio.com/')""
+RUN ["/bin/bash", "-c", "R"] \
+&& install.packages(c("methods","Rcpp", "RJSONIO", "digest", "functional", 
+                   "reshape2","stringr", "zoo", "caTools","quickcheck","testthat"), 
+                 dependencies=TRUE, repos='http://cran.rstudio.com/')
   
   
   
