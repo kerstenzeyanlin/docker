@@ -2,7 +2,7 @@
 
 FROM zeyanlin/debian:stretch
 
-
+LABEL org.label-schema.license="GPL-2.0"
 ARG R_VERSION
 ARG BUILD_DATE
 ENV R_VERSION=${R_VERSION:-3.4.0} \
