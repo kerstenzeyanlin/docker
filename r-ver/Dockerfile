@@ -1,6 +1,6 @@
 # r-ver/Dockerfile
 
-FROM debian:stretch
+FROM zeyanlin/debian:stretch
 
 
 ARG R_VERSION
