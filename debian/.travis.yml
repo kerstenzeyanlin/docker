@@ -1,0 +1,17 @@
+sudo: required
+
+services:
+  - docker
+
+## Make sure all containers build without error.
+#before_install: 
+#  - docker build -t zeyanlin/debian debian
+ 
+
+## A few simple / crude tests
+script:
+  - docker run -ti zeyanlin/debian  
+
+  - docker run -d --name rstudio zeyanlin/debian
+  - sleep 5 && docker ps | grep debian
+- docker rm -f $(docker ps -a -q)
