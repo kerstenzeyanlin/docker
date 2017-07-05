@@ -61,12 +61,9 @@ RUN apt-get update \
   &&  echo 'rsession-which-r=/usr/local/bin/R' >> /etc/rstudio/rserver.conf \ 
   ## configure git not to request password each time 
   && git config --system credential.helper 'cache --timeout=3600' \
-  && git config --system push.default simple
-# Install some packages
-# Rscript -e "install.packages(c('methods', 'Rcpp', 'RJSONIO'), dependencies=TRUE, repos='http://cran.rstudio.com/')" 
-
+  && git config --system push.default simple \
   ## Set up S6 init system
-RUN wget -P /tmp/ https://github.com/just-containers/s6-overlay/releases/download/v1.11.0.1/s6-overlay-amd64.tar.gz \
+  && wget -P /tmp/ https://github.com/just-containers/s6-overlay/releases/download/v1.11.0.1/s6-overlay-amd64.tar.gz \
   && tar xzf /tmp/s6-overlay-amd64.tar.gz -C / \
   && mkdir -p /etc/services.d/rstudio \
   && echo '#!/bin/bash \
