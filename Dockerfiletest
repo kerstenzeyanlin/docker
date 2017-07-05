@@ -83,7 +83,7 @@ COPY add_shiny.sh /etc/cont-init.d/add
 
 EXPOSE 8787
 
-## automatically link a shared volume for kitematic users
-VOLUME /home/rstudio/kitematic
+## automatically link a shared volume for allen users
+VOLUME /home/rstudio/allen
 
 CMD ["/init"]
