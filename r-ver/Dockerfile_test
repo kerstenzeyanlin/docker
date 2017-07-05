@@ -123,7 +123,8 @@ RUN apt-get update \
   && apt-get autoremove -y \
   && apt-get autoclean -y \
   && rm -rf /var/lib/apt/lists/*
-# Install some packages
+
+# Install some packages 
 RUN R -e "install.packages('broom', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
  && R -e "install.packages('caTools', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
  && R -e "install.packages('coefplot', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
