@@ -126,12 +126,6 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 # Install some packages
-RUN Rscript -e "install.packages(c('broom', 'caTools', 'coefplot', 'colorspace', \
-  'data.table', 'Deducer', 'devtools', 'digest', 'dplyr', 'functional', 'GGally', \
-  'ggplot2', 'knitr', 'labeling', 'lattice', 'lubridate', 'magrittr', 'mapdata', \
-  'maps', 'maptools', ''methods', 'pixmap', 'plyr', 'png', 'quickcheck', 'Rcmdr', \
-  'RColorBrewer', 'Rcpp', 'reshape2', 'rgeos', 'RJDBC', 'RJSONIO', 'rvest', 'scales'. \
-  'shiny', 'sp', 'stringr', 'testthat', 'tidyr', 'XLConnect', 'zoo' \
-  ), dependencies=TRUE, repos='http://cran.rstudio.com/')" 
+RUN Rscript -e "install.packages(c('broom', 'caTools', 'coefplot', 'colorspace', 'data.table', 'Deducer', 'devtools', 'digest', 'dplyr', 'functional', 'GGally', 'ggplot2', 'knitr', 'labeling', 'lattice', 'lubridate', 'magrittr', 'mapdata', 'maps', 'maptools', ''methods', 'pixmap', 'plyr', 'png', 'quickcheck', 'Rcmdr', 'RColorBrewer', 'Rcpp', 'reshape2', 'rgeos', 'RJDBC', 'RJSONIO', 'rvest', 'scales'. 'shiny', 'sp', 'stringr', 'testthat', 'tidyr', 'XLConnect', 'zoo'), dependencies=TRUE, repos='http://cran.rstudio.com/')" 
 
 CMD ["R"]
