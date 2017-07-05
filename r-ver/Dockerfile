@@ -1,6 +1,6 @@
 # r-ver/Dockerfile
 
-FROM zeyanlin/debian:stretch
+FROM debian:stretch
 LABEL org.label-schema.license="GPL-2.0"
 ARG R_VERSION
 ARG BUILD_DATE
