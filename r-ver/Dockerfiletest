@@ -167,6 +167,6 @@ testthat \
 tidyr \
 XLConnect \
 zoo"
-RUN Rscript -e "install.packages($packages, dependencies=TRUE, repos='http://cran.rstudio.com/')" 
+RUN R -e "install.packages('$packages', dependencies=TRUE, repos='http://cran.rstudio.com/')" 
 
 CMD ["R"]
