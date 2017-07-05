@@ -72,7 +72,7 @@ RUN apt-get update \
 # 'ggplot2', 'knitr', 'labeling', 'lattice', 'lubridate', 'magrittr', 'mapdata', \
 # 'maps', 'maptools', ''methods', 'pixmap', 'plyr', 'png', 'quickcheck', 'Rcmdr', \
 # 'RColorBrewer', 'Rcpp', 'reshape2', 'rgeos', 'RJDBC', 'RJSONIO', 'rvest', 'scales', \
-# 'shiny', 'sp', 'stringr', 'testthat', 'tidyr', 'XLConnect', 'zoo', \
+# 'shiny', 'sp', 'stringr', 'testthat', 'tidyr', 'XLConnect', 'zoo' \
 # ), dependencies=TRUE, repos='http://cran.rstudio.com/')" 
 RUN R -e "install.packages('methods', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
   && R -e "install.packages('Rcpp', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
