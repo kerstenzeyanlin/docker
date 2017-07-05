@@ -67,7 +67,13 @@ RUN apt-get update \
   && git config --system credential.helper 'cache --timeout=3600' \
   && git config --system push.default simple
 # Install some packages
-# Rscript -e "install.packages(c('methods', 'Rcpp', 'RJSONIO'), dependencies=TRUE, repos='http://cran.rstudio.com/')" 
+# Rscript -e "install.packages(c('broom', 'caTools', 'coefplot', 'colorspace', \
+# 'data.table', 'Deducer', 'devtools', 'digest', 'dplyr', 'functional', 'GGally', \
+# 'ggplot2', 'knitr', 'labeling', 'lattice', 'lubridate', 'magrittr', 'mapdata', \
+# 'maps', 'maptools', ''methods', 'pixmap', 'plyr', 'png', 'quickcheck', 'Rcmdr', \
+# 'RColorBrewer', 'Rcpp', 'reshape2', 'rgeos', 'RJDBC', 'RJSONIO', 'rvest', 'scales', \
+# 'shiny', 'sp', 'stringr', 'testthat', 'tidyr', 'XLConnect', 'zoo', \
+# ), dependencies=TRUE, repos='http://cran.rstudio.com/')" 
 RUN R -e "install.packages('methods', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
   && R -e "install.packages('Rcpp', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
   && R -e "install.packages('RJSONIO', dependencies=TRUE, repos='http://cran.csie.ntu.edu.tw/')" \
