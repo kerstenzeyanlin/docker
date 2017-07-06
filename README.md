@@ -1,5 +1,5 @@
 ![](https://img.shields.io/badge/Rstudio-Server-blue.svg?style=plastic)
-[![](https://travis-ci.org/linzeyan/rstudio.svg?style=plastic)](https://travis-ci.org/linzeyan/rstudio)
+[![](https://img.shields.io/travis/linzeyan/rstudio.svg?style=plastic)](https://travis-ci.org/linzeyan/rstudio)
 
 build          | pulls        | size      | tag         |    license
 -------------- | ------------ | --------- | ----------- | --------------
