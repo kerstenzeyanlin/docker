@@ -3,7 +3,7 @@
 
 build          | pulls        | size      | tag         |    license
 -------------- | ------------ | --------- | ----------- | --------------
-[![](https://img.shields.io/docker/automated/zeyanlin/rstudio.svg?style=plastic)](https://hub.docker.com/r/zeyanlin/rstudio/builds)   | [![](https://img.shields.io/docker/pulls/zeyanlin/rstudio.svg?style=plastic)](https://hub.docker.com/r/zeyanlin/rstudio/)  |[![](https://images.microbadger.com/badges/image/zeyanlin/rstudio.svg)](https://microbadger.com/images/zeyanlin/rstudio)| [![](https://images.microbadger.com/badges/version/zeyanlin/rstudio.svg)](https://microbadger.com/images/zeyanlin/rstudio) |  [![](https://images.microbadger.com/badges/license/zeyanlin/rstudio.svg)](https://microbadger.com/images/zeyanlin/rstudio) | 
+[![](https://img.shields.io/docker/automated/zeyanlin/rstudio.svg?style=plastic)](https://hub.docker.com/r/zeyanlin/rstudio/builds)   | [![](https://img.shields.io/docker/pulls/zeyanlin/rstudio.svg?style=plastic)](https://hub.docker.com/r/zeyanlin/rstudio/)  |[![](https://images.microbadger.com/badges/image/zeyanlin/rstudio.svg)](https://microbadger.com/images/zeyanlin/rstudio)| [![](https://images.microbadger.com/badges/version/zeyanlin/rstudio.svg)](https://microbadger.com/images/zeyanlin/rstudio) |  [![](https://images.microbadger.com/badges/license/zeyanlin/rstudio.svg)](https://microbadger.com/images/zeyanlin/rstudio)| 
 
 # Book about Docker
 
