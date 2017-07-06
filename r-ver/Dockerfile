@@ -127,4 +127,6 @@ RUN apt-get update \
   && apt-get autoclean -y \
   && rm -rf /var/lib/apt/lists/*
 
+RUN rm -rf /tmp/*
+
 CMD ["R"]
