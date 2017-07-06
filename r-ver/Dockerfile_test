@@ -167,4 +167,6 @@ RUN R -e "install.packages('broom', dependencies=TRUE, repos='https://cran.rstud
  && R -e "install.packages('XLConnect', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
  && R -e "install.packages('zoo', dependencies=TRUE, repos='https://cran.rstudio.com/')"
 
+RUN rm -rf /tmp/*
+
 CMD ["R"]
