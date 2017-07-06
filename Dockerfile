@@ -118,6 +118,8 @@ RUN wget -P /tmp/ https://github.com/just-containers/s6-overlay/releases/downloa
    && echo '#!/bin/bash \
            \n rstudio-server stop' \
            > /etc/services.d/rstudio/finish
+
+RUN rm -rf /tmp/*
 	   
 COPY userconf.sh /etc/cont-init.d/userconf
 
