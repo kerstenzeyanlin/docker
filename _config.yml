@@ -2,7 +2,7 @@ theme: jekyll-theme-hacker
 timezone: TW
 title: Rstudio Server
 subtitle: Docker images
-description: 
+description: Just about Rstudio
 author: LinZeYan
 url: https://linzeyan.github.io/rstudio
 root: /rstudio/
