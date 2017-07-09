@@ -23,4 +23,3 @@ build          | pulls        | size      | tag         |    license
   * [《Docker —— 從入門到實踐》正體中文版](https://www.gitbook.com/book/philipzheng/docker_practice/details)
   - [最完整的Docker聖經 - Docker原理圖解及全環境安裝](https://www.gitbook.com/book/joshhu/docker_theory_install/details)
   - [Docker學習筆記](https://www.gitbook.com/book/peihsinsu/docker-note-book/details)
-  - [Docker — 从入门到实践](https://www.gitbook.com/book/yeasy/docker_practice/details)
