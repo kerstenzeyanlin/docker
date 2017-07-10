@@ -1,8 +1,0 @@
-theme: jekyll-theme-hacker
-timezone: TW
-title: Rstudio Server
-subtitle: Docker images
-description: Just about Rstudio
-author: LinZeYan
-show_downloads: true
-google_analytics:
