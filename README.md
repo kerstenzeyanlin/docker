@@ -1,6 +1,7 @@
 ![](https://img.shields.io/badge/Rstudio-Server-blue.svg?style=plastic)
-![](https://img.shields.io/docker/build/zeyanlin/rstudio.svg?style=plastic)
 [![](https://img.shields.io/travis/linzeyan/rstudio.svg?style=plastic)](https://travis-ci.org/linzeyan/rstudio)
+![](https://img.shields.io/docker/build/zeyanlin/rstudio.svg?style=plastic)
+
 
 build          | pulls        | size      | tag         |    license
 -------------- | ------------ | --------- | ----------- | --------------
@@ -14,7 +15,7 @@ build          | pulls        | size      | tag         |    license
 
 > Visit localhost:8787 in your browser and log in with username:password as rstudio:rstudio or customize.
 
-    docker run -d -p 8787:8787 -e USER=username -e PASSWORD=password zeyanlin/rstudio
+    docker run -d -p 8787:8787 -e USER=username -e PASSWORD=password zeyanlin/rstudio:latest
 
 # Source
 
