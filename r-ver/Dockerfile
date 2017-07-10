@@ -124,48 +124,55 @@ RUN apt-get update \
   && apt-get autoclean -y \
   && rm -rf /var/lib/apt/lists/*
 
-# Install some packages 
-RUN R -e "install.packages('broom', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('caTools', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('coefplot', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('colorspace', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('data.table', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('Deducer', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('devtools', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('digest', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('dplyr', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('functional', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('GGally', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('ggplot2', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('knitr', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('labeling', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('lattice', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('lubridate', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('magrittr', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('mapdata', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('maps', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('maptools', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('methods', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('pixmap', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('plyr', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('png', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('quickcheck', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('Rcmdr', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('RColorBrewer', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('Rcpp', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('reshape2', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('rgeos', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('RJDBC', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('RJSONIO', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('rvest', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('scales', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('shiny', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('sp', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('stringr', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('testthat', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('tidyr', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('XLConnect', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('zoo', dependencies=TRUE, repos='https://cran.rstudio.com/')"
+# Install some packages
+RUN Rscript -e \
+  " options(repos=structure(c(CRAN='https://cran.rstudio.com/'))); \
+    install.packages('ggplot2', dependencies = TRUE); \
+    install.packages(c( \
+    'broom', \
+    'caTools', \
+    'coefplot', \
+    'colorspace', \
+    'data.table', \
+    'Deducer', \
+    'devtools', \
+    'digest', \
+    'dplyr', \
+    'functional', \
+    'GGally', \
+    'knitr', \
+    'labeling', \
+    'lattice', \
+    'lubridate', \
+    'magrittr', \
+    'mapdata', \
+    'maps', \
+    'maptools', \
+    'methods', \
+    'pixmap', \
+    'plyr', \
+    'png', \
+    'quickcheck', \
+    'Rcmdr', \
+    'RColorBrewer', \
+    'Rcpp', \
+    'reshape2', \
+    'rgeos', \
+    'RJDBC', \
+    'RJSONIO', \
+    'rvest', \
+    'scales', \
+    'shiny', \
+    'sp', \
+    'stringr', \
+    'testthat', \
+    'tidyr', \
+    'XLConnect', \
+    'zoo'))"
+
+
+
+
 
 RUN rm -rf /tmp/*
 
