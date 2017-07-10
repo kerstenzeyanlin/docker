@@ -72,7 +72,7 @@ RUN apt-get update \
   && echo '#!/bin/bash \
            \n rstudio-server stop' \
            > /etc/services.d/rstudio/finish
-RUN && rm -rf /tmp/*
+RUN rm -rf /tmp/*
 
 COPY userconf.sh /etc/cont-init.d/userconf
 
