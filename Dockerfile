@@ -1,7 +1,4 @@
-FROM zeyanlin/r-ver:latest
-
-LABEL org.label-schema.license="GPL-2.0"
-
+FROM zeyanlin/r-ver:test
 ARG RSTUDIO_VERSION
 ARG PANDOC_TEMPLATES_VERSION 
 ENV PANDOC_TEMPLATES_VERSION=${PANDOC_TEMPLATES_VERSION:-1.18} \
@@ -9,7 +6,6 @@ PATH=/usr/lib/rstudio-server/bin:$PATH
 ## Work-around to make Docker Hub use the Dockerfile 
 ## from https://github.com/linzeyan/rstudio
 MAINTAINER Lin ZeYan
-
 ## Download and install RStudio server & dependencies
 ## Attempts to get detect latest version, otherwise falls back to version given in $VER
 ## Symlink pandoc, pandoc-citeproc so they are available system-wide
@@ -65,62 +61,19 @@ RUN apt-get update \
   &&  echo 'rsession-which-r=/usr/local/bin/R' >> /etc/rstudio/rserver.conf \ 
   ## configure git not to request password each time 
   && git config --system credential.helper 'cache --timeout=3600' \
-  && git config --system push.default simple
-# Install some packages
-RUN R -e "install.packages('broom', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('caTools', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('coefplot', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('colorspace', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('data.table', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('Deducer', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('devtools', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('digest', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('dplyr', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('functional', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('GGally', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('ggplot2', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('knitr', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('labeling', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('lattice', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('lubridate', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('magrittr', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('mapdata', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('maps', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('maptools', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('methods', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('pixmap', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('plyr', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('png', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('quickcheck', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('Rcmdr', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('RColorBrewer', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('Rcpp', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('reshape2', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('rgeos', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('RJDBC', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('RJSONIO', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('rvest', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('scales', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('shiny', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('sp', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('stringr', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('testthat', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('tidyr', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('XLConnect', dependencies=TRUE, repos='https://cran.rstudio.com/')" \
- && R -e "install.packages('zoo', dependencies=TRUE, repos='https://cran.rstudio.com/')"
+  && git config --system push.default simple \
   ## Set up S6 init system
-RUN wget -P /tmp/ https://github.com/just-containers/s6-overlay/releases/download/v1.11.0.1/s6-overlay-amd64.tar.gz \
+  && wget -P /tmp/ https://github.com/just-containers/s6-overlay/releases/download/v1.11.0.1/s6-overlay-amd64.tar.gz \
   && tar xzf /tmp/s6-overlay-amd64.tar.gz -C / \
   && mkdir -p /etc/services.d/rstudio \
   && echo '#!/bin/bash \
            \n exec /usr/lib/rstudio-server/bin/rserver --server-daemonize 0' \
            > /etc/services.d/rstudio/run \
-   && echo '#!/bin/bash \
+  && echo '#!/bin/bash \
            \n rstudio-server stop' \
            > /etc/services.d/rstudio/finish
+  && rm -rf /tmp/*
 
-RUN rm -rf /tmp/*
-	   
 COPY userconf.sh /etc/cont-init.d/userconf
 
 ## running with "-e ADD=shiny" adds shiny server
