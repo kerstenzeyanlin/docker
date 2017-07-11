@@ -3,9 +3,12 @@
 ![](https://img.shields.io/docker/build/zeyanlin/rstudio.svg?style=plastic)
 
 
-build          | pulls        | size      | tag         |    license
--------------- | ------------ | --------- | ----------- | --------------
-[![](https://img.shields.io/docker/automated/zeyanlin/rstudio.svg?style=plastic)](https://hub.docker.com/r/zeyanlin/rstudio/) | ![](https://img.shields.io/docker/pulls/zeyanlin/rstudio.svg?style=plastic) | [![](https://images.microbadger.com/badges/image/zeyanlin/rstudio.svg?style=plastic)](https://microbadger.com/images/zeyanlin/rstudio) | ![](https://images.microbadger.com/badges/version/zeyanlin/rstudio.svg?style=plastic) | ![](https://images.microbadger.com/badges/license/zeyanlin/rstudio.svg?style=plastic)
+build | [![](https://img.shields.io/docker/automated/zeyanlin/rstudio.svg?style=plastic)](https://hub.docker.com/r/zeyanlin/rstudio/) 
+-------------- | ------------
+pulls |  ![](https://img.shields.io/docker/pulls/zeyanlin/rstudio.svg?style=plastic) 
+size |  [![](https://images.microbadger.com/badges/image/zeyanlin/rstudio.svg)](https://microbadger.com/images/zeyanlin/rstudio) 
+tag |  ![](https://images.microbadger.com/badges/version/zeyanlin/rstudio.svg) 
+license |  ![](https://images.microbadger.com/badges/license/zeyanlin/rstudio.svg)
 
 # Install Docker & pull rstudio image
 
