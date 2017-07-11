@@ -4,7 +4,7 @@
 
 
 build | [![](https://img.shields.io/docker/automated/zeyanlin/rstudio.svg?style=plastic)](https://hub.docker.com/r/zeyanlin/rstudio/) 
--------------- | ------------
+-------------- | -------------- 
 pulls |  ![](https://img.shields.io/docker/pulls/zeyanlin/rstudio.svg?style=plastic) 
 size |  [![](https://images.microbadger.com/badges/image/zeyanlin/rstudio.svg)](https://microbadger.com/images/zeyanlin/rstudio) 
 tag |  ![](https://images.microbadger.com/badges/version/zeyanlin/rstudio.svg) 
