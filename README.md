@@ -20,7 +20,7 @@ build          | pulls        | size      | tag         |    license
 # Source
 
 * [Docker commands tutorial](https://github.com/linzeyan/rstudio/blob/master/01.docker_tutorial.md#常用的-docker-命令)
-* [Docker commands diagram](https://github.com/linzeyan/rstudio/rstudio/Docker commands diagram.png)
+* [Docker commands diagram](https://linzeyan.github.io/rstudio/Docker commands diagram.png)
 * Book about Docker
   * [《Docker —— 從入門到實踐》正體中文版](https://www.gitbook.com/book/philipzheng/docker_practice/details)
   - [最完整的Docker聖經 - Docker原理圖解及全環境安裝](https://www.gitbook.com/book/joshhu/docker_theory_install/details)
