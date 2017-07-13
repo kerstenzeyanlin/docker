@@ -20,11 +20,11 @@ license |  ![](https://images.microbadger.com/badges/license/zeyanlin/rstudio.sv
 
     docker run -d -p 8787:8787 -e USER=username -e PASSWORD=password zeyanlin/rstudio:latest
 
-# Source
+# Get help
 
 * [Docker commands tutorial](https://github.com/linzeyan/rstudio/blob/master/01.docker_tutorial.md#常用的-docker-命令)
 * [Docker commands diagram](https://linzeyan.github.io/rstudio/Docker commands diagram.png)
-* Book about Docker
+* Reference
   * [《Docker —— 從入門到實踐》正體中文版](https://www.gitbook.com/book/philipzheng/docker_practice/details)
   - [最完整的Docker聖經 - Docker原理圖解及全環境安裝](https://www.gitbook.com/book/joshhu/docker_theory_install/details)
   - [Docker學習筆記](https://www.gitbook.com/book/peihsinsu/docker-note-book/details)
