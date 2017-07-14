@@ -12,7 +12,7 @@ license |  ![](https://images.microbadger.com/badges/license/zeyanlin/rstudio.sv
 
 # Install Docker & pull rstudio image
 
-    curl -sSL https://linzeyan.github.io/linzeyan.github.io/install_docker.sh | sudo sh
+    curl -sSL https://goo.gl/ryCcwT | sudo sh
     
 # Run rstudio
 
