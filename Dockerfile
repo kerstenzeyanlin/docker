@@ -2,13 +2,11 @@ FROM zeyanlin/r-ver:latest
 
 LABEL org.label-schema.license="GPL-2.0"
 
-ARG RSTUDIO_VERSION
-ARG PANDOC_TEMPLATES_VERSION 
+ARG RSTUDIO_VERSION PANDOC_TEMPLATES_VERSION 
 ENV PANDOC_TEMPLATES_VERSION=${PANDOC_TEMPLATES_VERSION:-1.18} \
-PATH=/usr/lib/rstudio-server/bin:$PATH
+ PATH=/usr/lib/rstudio-server/bin:$PATH
 ## Work-around to make Docker Hub use the Dockerfile 
 ## from https://github.com/linzeyan/rstudio
-MAINTAINER Lin ZeYan
 
 ## Download and install RStudio server & dependencies
 ## Attempts to get detect latest version, otherwise falls back to version given in $VER
@@ -115,16 +113,17 @@ RUN wget -P /tmp/ https://github.com/just-containers/s6-overlay/releases/downloa
   && echo '#!/bin/bash \
            \n exec /usr/lib/rstudio-server/bin/rserver --server-daemonize 0' \
            > /etc/services.d/rstudio/run \
-   && echo '#!/bin/bash \
+  && echo '#!/bin/bash \
            \n rstudio-server stop' \
-           > /etc/services.d/rstudio/finish
+           > /etc/services.d/rstudio/finish \
+  && rm -rf /tmp/*
 
-RUN rm -rf /tmp/*
+
 	   
-COPY userconf.sh /etc/cont-init.d/userconf
+COPY userconf.sh /etc/cont-init.d/userconf \
 
 ## running with "-e ADD=shiny" adds shiny server
-COPY add_shiny.sh /etc/cont-init.d/add
+ add_shiny.sh /etc/cont-init.d/add
 
 EXPOSE 8787
 
