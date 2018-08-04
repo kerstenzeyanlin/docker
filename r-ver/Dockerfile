@@ -1,9 +1,7 @@
 # r-ver/Dockerfile
-
 FROM debian:stretch
 LABEL org.label-schema.license="GPL-2.0"
-ARG R_VERSION
-ARG BUILD_DATE
+ARG R_VERSION BUILD_DATE
 ENV R_VERSION=${R_VERSION:-3.4.0} \
     LC_ALL=en_US.UTF-8 \
     LANG=en_US.UTF-8 \
