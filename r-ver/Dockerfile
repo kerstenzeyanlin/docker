@@ -125,8 +125,6 @@ RUN apt-get update \
   && apt-get remove --purge -y $BUILDDEPS \
   && apt-get autoremove -y \
   && apt-get autoclean -y \
-  && rm -rf /var/lib/apt/lists/*
-
-RUN rm -rf /tmp/*
+  && rm -rf /var/lib/apt/lists/* /tmp/*
 
 CMD ["R"]
